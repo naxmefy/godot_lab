@@ -27,18 +27,29 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 48.1468
-height = 38.3201
+radius = 33.6433
+height = 26.9462
 
 [node name="Mob" type="RigidBody2D" groups=[
 "mobs",
 ]]
+collision_mask = 0
+gravity_scale = 0.0
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 1 )
 animation = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.57079
 shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+rect = Rect2( -50, -40, 100, 80 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

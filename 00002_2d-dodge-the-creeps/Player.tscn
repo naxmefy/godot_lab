@@ -20,15 +20,19 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 58.5764
+radius = 26.828
+height = 14.2772
 
 [node name="Player" type="Area2D"]
 gravity_point = true
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
