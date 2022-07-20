@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="00001_simple_platformer"
+run/main_scene="res://level_1.tscn"
 config/icon="res://icon.png"
 
 [physics]
